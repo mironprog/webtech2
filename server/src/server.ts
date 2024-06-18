@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
 import { connectToDatabase } from "./database";
-//import { employeeRouter } from "./employee.routes";
+import { employeeRouter } from "./employee.routes";
 
 
 dotenv.config();
@@ -20,7 +20,7 @@ connectToDatabase(ATLAS_URI)
   .then(() => {
     const app = express();
     app.use(cors());
-    //app.use("/employees", employeeRouter);
+    app.use("/employees", employeeRouter);
 
     
     app.listen(5200, () => {
